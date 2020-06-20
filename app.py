@@ -7,6 +7,7 @@ import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import nltk
+import numpy as np
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -36,17 +37,22 @@ if st.sidebar.button('Live analysis', key='analyse'):
     df = pd.DataFrame(data=d)
     # st.write(df)
     hashtag = f'#{hashtag}'
-    tweets = tw.Cursor(
-        api.search,
-        q=hashtag,
-        lang='en',
-        since=date
-    ).items()
+    with st.spinner('Getting tweets...'):
+            tweets = tw.Cursor(
+            api.search,
+            q=hashtag,
+            lang='en',
+            since=date
+        ).items()
+
     total_tweets = st.empty()
     pos_tweets = st.empty()
     neg_tweets = st.empty()
-    chart = st.line_chart(df)
-    # chart2 = st.bar_chart(df.tail(1))
+    
+    sentiments = ['Positive', 'Negative']
+    # chart = st.line_chart(df)
+    barchart = st.empty()
+
     for idx, tweet in enumerate(tweets):
         tweets_count += 1
         output = classify(tweet.text, classifier)
@@ -59,8 +65,14 @@ if st.sidebar.button('Live analysis', key='analyse'):
         neg_tweets.text('Negative tweets: %d' % neg_count)
         # st.write(neg_count, pos_count)
         df2 = pd.DataFrame({"Positive": [pos_count], "Negative": [neg_count]})
-        chart.add_rows(df2)
-        # chart2.add_rows(df2)
+        df.update(df2)
+        df_numpy = df.values[0]
+        # students = [23,17,35,29,12]
+        bar = plt.bar(sentiments, df_numpy, color=['blue', 'red'], width=0.3)
+        barchart.pyplot()
+        # df_write.dataframe(df)
+        # bc.pyplot()
+        # chart.add_rows(df2)
         # st.pyplot()
     if neg_count == 0 and pos_count == 0:
         st.warning(f'No Tweets Found on {hashtag}')
