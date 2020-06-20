@@ -3,10 +3,6 @@ from nltk.tag import pos_tag
 from nltk import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-args = argparse.ArgumentParser()
-args.add_argument('--tweet')
-result = args.parse_args()
-
 def remove_noise(tweet_tokens, stop_words = ()):
 
     cleaned_tokens = []
