@@ -62,5 +62,8 @@ if st.sidebar.button('Live analysis', key='analyse'):
         chart.add_rows(df2)
         # chart2.add_rows(df2)
         # st.pyplot()
-    st.success('Tweets classified')
+    if neg_count == 0 and pos_count == 0:
+        st.warning(f'No Tweets Found on {hashtag}')
+    else:
+        st.success('Tweets classified')
         
