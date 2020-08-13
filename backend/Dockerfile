@@ -17,4 +17,5 @@ RUN python3 -m nltk.downloader averaged_perceptron_tagger
 
 EXPOSE 8000
 
-CMD ["uvicorn", "server:app"]
+# CMD ["uvicorn", "server:app", "--host 0.0.0.0"]
+CMD ["python3", "server.py"]
