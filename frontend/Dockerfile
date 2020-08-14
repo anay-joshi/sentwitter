@@ -10,10 +10,4 @@ EXPOSE 8501
 
 COPY . .
 
-RUN mkdir -p /root/.streamlit
-RUN bash -c 'echo -e "\
-    [server]\n\
-    enableCORS = false\n\
-    " > /root/.streamlit/config.toml'
-
 CMD ["streamlit", "run", "tweets.py"]
