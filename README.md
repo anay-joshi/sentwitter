@@ -1,16 +1,16 @@
 ### Live Tweet sentiment analysis
 
 <br>
-<center>
+<p align="center">
     <img src="https://img.shields.io/github/license/amalshaji/sentwitter">
 
-</center>
+</p>
 
 <br><br>
 
 ![gif](https://j.gifs.com/4Q01k7.gif)
 
-<center>Sentiment analysis on `boycott`, as expected tweets are negative</center>
+<p align="center">Sentiment analysis on `boycott`, as expected tweets are negative</p>
 
 ### Download
 
