@@ -40,7 +40,7 @@ if st.sidebar.button("Live analysis", key="analyse"):
 
     for idx, tweet in enumerate(tweets):
         tweets_count += 1
-        output = requests.post("http://localhost:8000/api", json={"tweet": tweet.text})
+        output = requests.post("http://backend:8000/api", json={"tweet": tweet.text})
         output = output.content.decode("utf8")
         output = json.loads(output).get("sentiment")
 
