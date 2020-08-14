@@ -1,6 +1,16 @@
 ### Live Tweet sentiment analysis
 
-<iframe src='//gifs.com/embed/live-tweet-sentiment-analysis-ANkvm9' frameborder='0' scrolling='no' width='1280px' height='720px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+<br>
+<center>
+    <img src="https://img.shields.io/github/license/amalshaji/sentwitter">
+
+</center>
+
+<br><br>
+
+![gif](https://j.gifs.com/4Q01k7.gif)
+
+<center>Sentiment analysis on `boycott`, as expected tweets are negative</center>
 
 ### Download
 
@@ -19,3 +29,11 @@ consumer_secret= ''
 access_token= ''
 access_token_secret= ''
 ```
+
+### Spin up the app
+
+```bash
+docker-compose up
+```
+
+### Open browser and goto `localhost:8501`
