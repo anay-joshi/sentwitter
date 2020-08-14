@@ -5,20 +5,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from classify import remove_noise
 from nltk.tokenize import word_tokenize
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
-origins = ["*"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 classifier = utils.load_model()
 # nltk.download("punkt")
 # nltk.download("wordnet")
